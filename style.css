@@ -39,3 +39,13 @@ h2 { text-align:center; margin-bottom:30px; }
 .contact-grid a:hover { background:#00d0dd;}
 
 @media(max-width:600px){ .reel-grid iframe{height:260px;} }
+.hero-photo {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #00f2ff;
+  margin: 20px auto;
+  display: block;
+  box-shadow: 0 0 12px #00f2ff70;
+}
