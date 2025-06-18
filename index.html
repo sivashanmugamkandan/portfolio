@@ -1,68 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Sivashanmugam — Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header id="hero">
-    <img src="your-image.png" alt="Sivashanmugam" class="hero-photo">
-    <div class="hero-text">
-      <h1>Sivashanmugam</h1>
-      <p>Digital Marketer · Assistant Director · Performer · Entrepreneur · Event Planner</p>
-      <div class="cta">
-        <a href="#resume" class="btn">Resume</a>
-        <a href="#contact" class="btn">Contact Me</a>
-      </div>
-    </div>
-  </header>
+<nav id="navbar">
+  <img src="logo.png" alt="Logo" class="nav-logo">
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#reels">Media</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <section id="resume" class="section">
-    <h2>Resume</h2>
-    <div class="resume-grid">
-      <!-- Your resume content -->
+<header id="hero" data-aos="fade-down">
+  <img src="banner-ai.png" alt="AI-generated banner" class="hero-banner">
+  <div class="hero-text">
+    <h1>Sivashanmugam</h1>
+    <p>Digital Marketer · Assistant Director · Performer · Entrepreneur · Event Planner</p>
+    <div class="cta">
+      <a href="#resume" class="btn">Resume</a>
+      <a href="#contact" class="btn">Contact Me</a>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section id="reels" class="section">
-    <h2>Instagram Highlights</h2>
-    <div class="reel-grid">
-      <!-- Instagram embeds -->
+<section id="resume" class="section" data-aos="fade-up">
+  <h2>Resume</h2>
+  <a href="Sivashanmugam_CV.pdf" class="btn download-btn" download>⬇️ Download CV</a>
+  <div class="resume-grid">
+    <div>
+      <h3>Professional Experience</h3>
+      <ul>
+        <li>Assistant Director – *Saatchi* (Dir. Lokesh Kumar)</li>
+        <li>Chief Guest – National Modeling Show</li>
+        <li>College Speaker – University Events</li>
+        <li>Founder & Entrepreneur – Siva Infotech</li>
+        <li>Event Planner & Producer</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="events" class="section">
-    <h2>Events & Roles</h2>
-    <div class="events-grid">
-      <!-- Event cards -->
+    <div>
+      <h3>Performances & Events</h3>
+      <ul>
+        <li>Lead Singer – VGP Singing Concert</li>
+        <li>Instagram Performance Reels</li>
+        <li>Public Review Panelist – Kollywood Events</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="awards" class="section">
-    <h2>Awards & Recognition</h2>
-    <div class="reel-grid">
-      <!-- Awards embeds -->
+    <div>
+      <h3>Awards & Recognition</h3>
+      <ul>
+        <li>Film Council Recognition (2024)</li>
+        <li>Best Supporting Direction – Indie Awards</li>
+      </ul>
     </div>
-  </section>
-
-  <section id="services" class="section">
-    <h2>Business & Services</h2>
-    <p class="tagline">@siva_info_tech · <a href="https://www.sivainfotech.org" target="_blank">sivainfotech.org</a></p>
-    <div class="services-grid">
-      <!-- Service listings -->
+    <div>
+      <h3>Skills</h3>
+      <ul>
+        <li>Direction & Acting</li>
+        <li>Digital & WhatsApp Marketing</li>
+        <li>Event Production & Planning</li>
+        <li>Web & Software Development</li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer id="contact" class="section">
-    <h2>Contact Me</h2>
-    <div class="contact-grid">
-      <!-- Contact links -->
+<section id="projects" class="section" data-aos="zoom-in">
+  <h2>Projects & Clients</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="project1.png" alt="Project 1 Logo">
+      <p>Project One</p>
     </div>
-  </footer>
+    <div class="project-card">
+      <img src="project2.png" alt="Project 2 Logo">
+      <p>Project Two</p>
+    </div>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<section id="reels" class="section" data-aos="fade-up">
+  <h2>Instagram Highlights</h2>
+  <div class="reel-grid">
+    <iframe src="https://www.instagram.com/reel/DD4OWBjPexl/embed" frameborder="0" loading="lazy"></iframe>
+    <!-- Add other embeds -->
+  </div>
+</section>
+
+<section id="services" class="section" data-aos="fade-up">
+  <h2>Business & Services</h2>
+  <p class="tagline">@siva_info_tech · <a href="https://www.sivainfotech.org" target="_blank">sivainfotech.org</a></p>
+  <div class="services-grid">
+    <div>Digital Marketing</div>
+    <!-- Add others -->
+  </div>
+</section>
+
+<footer id="contact" class="section" data-aos="fade-up">
+  <h2>Contact Me</h2>
+  <div class="contact-grid">
+    <a href="mailto:sivainfo@gmail.com">✉️ Email</a>
+    <a href="https://www.instagram.com/sivashanmugam.offcial" target="_blank">📸 Instagram</a>
+    <a href="https://github.com/sivashanmugamkandan" target="_blank">💻 GitHub</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="script.js"></script>
+<script>
+  AOS.init({ duration: 800, once: true });
+</script>
 </body>
 </html>
