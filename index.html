@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sivashanmugam — Portfolio</title>
   <meta name="description" content="Sivashanmugam — Entrepreneur, Digital Marketer, Associate Film Director. Projects, Resume, Services and Contact." />
-  <meta property="og:title" content="Sivashanmugam — Portfolio" />
-  <meta property="og:description" content="Entrepreneur • Digital Marketer • Associate Film Director — Projects, Case Studies, Contact" />
-  <meta property="og:image" content="PROFILEIMAGESIVA.jpeg" />
-  <link rel="icon" href="favicon.ico" />
 
   <!-- Prevent theme flicker by applying saved mode early -->
   <script>
@@ -16,89 +12,81 @@
       if (localStorage.getItem('sv_mode') === 'light') {
         document.documentElement.classList.add('light');
       }
-    } catch(e) { /* ignore */ }
+    } catch(e) {}
   </script>
 
-  <!-- AOS -->
+  <!-- AOS + Typed + Font Awesome -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-  <!-- Typed.js (for hero typing) -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0f1724;
-      --panel: rgba(255,255,255,0.06);
-      --muted: #9aa4b2;
+      --bg-dark: #071027;
+      --bg-dark-2: #081228;
+      --muted-dark: #9aa4b2;
       --accent: #6366f1;
-      --glass: rgba(255,255,255,0.06);
-      --glass-border: rgba(255,255,255,0.08);
       --card-shadow: 0 6px 20px rgba(2,6,23,0.6);
     }
-    html,body{height:100%; margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; -webkit-font-smoothing:antialiased;}
-    body{background: linear-gradient(180deg,#071027 0%, #081228 60%); color:#e6eef8; transition:background 300ms, color 300ms;}
+
+    /* Base */
+    html,body{height:100%; margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial; -webkit-font-smoothing:antialiased;}
+    body{
+      background: linear-gradient(180deg,var(--bg-dark) 0%, var(--bg-dark-2) 60%);
+      color:#e6eef8;
+      transition:background 300ms, color 300ms;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
     .container{max-width:1100px; margin:0 auto; padding:28px;}
 
-    /* Navbar */
+    /* NAV */
     .nav{position:fixed; top:12px; left:0; right:0; display:flex; align-items:center; justify-content:center; pointer-events:none; z-index:60}
-    .nav-inner{pointer-events:auto; width:95%; max-width:1100px; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012)); padding:10px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(6px); box-shadow:0 6px 30px rgba(2,6,23,0.6);}
+    .nav-inner{pointer-events:auto; width:95%; max-width:1100px; display:flex; align-items:center; justify-content:space-between; background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.012)); padding:10px 16px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); backdrop-filter: blur(6px); box-shadow:var(--card-shadow);}
     .brand{display:flex; align-items:center; gap:12px;}
     .brand img{width:44px;height:44px;border-radius:8px; object-fit:cover; border:1px solid rgba(255,255,255,0.06);}
     .brand h1{font-size:18px;margin:0;color:var(--accent)}
     nav{display:flex; align-items:center; gap:16px;}
-    nav a{color:rgba(236,240,246,0.85); text-decoration:none; font-weight:600; font-size:14px}
-    nav a:hover{color:white; transform:translateY(-2px)}
+    nav a{color:rgba(236,240,246,0.95); text-decoration:none; font-weight:600; font-size:14px}
+    nav a:hover{color:#fff; transform:translateY(-2px)}
     .nav-actions{display:flex; align-items:center; gap:8px}
     .btn{background:linear-gradient(90deg,#fff 0%, #f0f0ff 100%); color:#0b1220; padding:8px 12px; border-radius:12px; font-weight:700; text-decoration:none; font-size:13px}
-    .ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:8px 10px; border-radius:10px; color:rgba(236,240,246,0.85)}
+    .ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); padding:8px 10px; border-radius:10px; color:rgba(236,240,246,0.9)}
 
-    /* Hamburger + mobile nav */
+    /* Hamburger + mobile nav (fixed overlay) */
     .hamburger { display:none; flex-direction:column; gap:4px; cursor:pointer; width:24px; height:20px; justify-content:center; }
     .hamburger span { height:2px; background:#fff; border-radius:2px; transition:0.28s; display:block; }
     .hamburger.active span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
     .hamburger.active span:nth-child(2){ opacity:0; transform:translateX(-10px); }
     .hamburger.active span:nth-child(3){ transform:rotate(-45deg) translate(5px,-5px); }
 
-    .mobile-nav { position:fixed; top:60px; left:0; right:0; bottom:0; display:none; flex-direction:column; gap:18px; background:rgba(0,0,0,0.97); padding:20px; border-radius:0; z-index:9999; overflow-y:auto; transform:translateY(-6px); opacity:0; transition:opacity .28s ease, transform .28s ease; }
+    .mobile-nav { position:fixed; top:60px; left:0; right:0; bottom:0; display:none; flex-direction:column; gap:18px; background:rgba(0,0,0,0.98); padding:24px; z-index:9999; overflow-y:auto; transform:translateY(-6px); opacity:0; transition:opacity .28s ease, transform .28s ease; }
     .mobile-nav.show { display:flex; opacity:1; transform:translateY(0); }
     .mobile-nav a { color:white; font-size:18px; text-decoration:none; padding:8px 0; }
 
-    @media (max-width:768px){
-      nav { display:none; }
-      .hamburger { display:flex; }
-    }
+    @media (max-width:768px){ nav{display:none;} .hamburger{display:flex;} }
 
-    /* Hero */
+    /* HERO */
     header.hero{min-height:88vh; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; padding-top:36px}
     .hero-inner{display:grid; grid-template-columns: 1fr 420px; gap:40px; align-items:center; width:100%; max-width:1100px; margin:32px auto;}
-    .hero-left{padding:8px 12px;}
-    .eyebrow{color:var(--muted); font-weight:700; letter-spacing:1px; font-size:12px}
+    .eyebrow{color:var(--muted-dark); font-weight:700; letter-spacing:1px; font-size:12px}
     h2.title{font-size:44px; line-height:1.02; margin:12px 0 10px; color: #fbfbff}
-    p.lead{color:rgba(236,240,246,0.85); max-width:640px; font-size:16px; margin-bottom:18px}
+    p.lead{color:rgba(236,240,246,0.9); max-width:640px; font-size:16px; margin-bottom:18px}
     .typed{color:var(--accent); font-weight:700}
     .hero-ctas{display:flex; gap:12px; margin-top:18px;}
+
     .profile-card{background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border-radius:16px; padding:18px; border:1px solid rgba(255,255,255,0.06); width:420px; align-self:center; box-shadow: var(--card-shadow); backdrop-filter: blur(8px);}
     .profile-photo{width:120px; height:120px; border-radius:20px; object-fit:cover; border:3px solid rgba(255,255,255,0.06)}
     .profile-name{font-size:20px; font-weight:800; margin-top:10px}
-    .profile-role{color:var(--muted); font-size:13px; margin-top:4px}
-    .socials{display:flex; gap:10px; margin-top:12px}
-    .socials a{color:rgba(236,240,246,0.9); text-decoration:none; display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03)}
+    .profile-role{color:var(--muted-dark); font-size:13px; margin-top:4px}
 
-    /* Glass cards & layout */
+    /* Cards & layout */
     section{padding:72px 0}
     .grid-2{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
     .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(2,6,23,0.6); transition:transform .28s, box-shadow .28s}
     .card:hover{transform:translateY(-8px) scale(1.01); box-shadow:0 20px 40px rgba(2,6,23,0.7)}
     h3.card-title{margin:0 0 8px 0; font-size:18px}
-    p.muted{color:var(--muted); margin:0; font-size:14px}
-
-    /* Timeline */
-    .timeline{border-left:3px solid rgba(255,255,255,0.04); padding-left:18px}
-    .timeline-item{margin-bottom:26px}
-    .meta{color:var(--muted); font-size:13px}
+    p.muted{color:var(--muted-dark); margin:0; font-size:14px}
 
     /* Projects carousel */
     .carousel{position:relative; overflow:hidden}
@@ -113,7 +101,7 @@
     .service{padding:20px; border-radius:12px; text-align:center; transition:transform .25s; cursor:default}
     .service:hover{transform:translateY(-8px)}
 
-    /* Blog & media */
+    /* Media & blog */
     .media-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
     iframe{width:100%; height:220px; border-radius:10px; border:0}
 
@@ -121,12 +109,12 @@
     .contact-form{max-width:740px; margin:0 auto; display:grid; gap:12px}
     input, textarea{width:100%; padding:12px; border-radius:10px; background:transparent; border:1px solid rgba(255,255,255,0.06); color:inherit; outline:none}
     button.send{padding:12px 16px; border-radius:10px; background:linear-gradient(90deg,var(--accent), #8b5cf6); color:white; border:0; font-weight:700; cursor:pointer}
-    .status{margin-top:10px; color:var(--muted); text-align:center}
+    .status{margin-top:10px; color:var(--muted-dark); text-align:center}
 
     /* Footer */
-    footer{padding:28px 0; text-align:center; color:var(--muted)}
+    footer{padding:28px 0; text-align:center; color:var(--muted-dark)}
 
-    /* Responsive */
+    /* Responsive adjustments */
     @media (max-width:900px){
       .hero-inner{grid-template-columns:1fr 320px}
       .project{width:280px}
@@ -139,12 +127,29 @@
       nav a { margin-left: 8px; font-size: 13px; }
     }
 
-    /* Light overrides (when html has .light class) */
-    .light body{background:linear-gradient(180deg,#f8fafc,#eef2ff)}
-    .light .nav-inner{background:linear-gradient(180deg, rgba(11,18,32,0.02), rgba(11,18,32,0.01)); border:1px solid rgba(2,6,23,0.04)}
-    .light .card{background:white; color:#0b1220; box-shadow:0 10px 30px rgba(11,18,32,0.06)}
-    .light .profile-card{background:white}
-    .light .btn{background:#0b1220; color:white}
+    /* LIGHT THEME: ensure colors and backgrounds invert properly */
+    html.light body{
+      background: linear-gradient(180deg,#f8fafc,#eef2ff);
+      color: #0b1220;
+    }
+    html.light .nav-inner,
+    html.light .card,
+    html.light .profile-card,
+    html.light .service {
+      background: #fff;
+      color: #0b1220;
+      border: 1px solid rgba(0,0,0,0.06);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+    }
+    html.light nav a { color: #1f2937; }
+    html.light .muted, html.light p.muted, html.light .meta { color: #6b7280; }
+    html.light .ghost { color:#1f2937; border:1px solid rgba(0,0,0,0.08); background:rgba(0,0,0,0.02); }
+    html.light footer { color: #374151; }
+    html.light .btn { background: #0b1220; color: #fff; }
+    html.light input, html.light textarea { color:#0b1220; border:1px solid rgba(0,0,0,0.12); background:#fff; }
+
+    /* small utility to ensure no accidental hidden content */
+    .hidden-by-js { display:none !important; }
   </style>
 </head>
 <body id="page">
@@ -156,7 +161,7 @@
         <img src="PROFILEIMAGESIVA.jpeg" alt="Siva">
         <div>
           <h1>Sivashanmugam</h1>
-          <div style="font-size:12px;color:var(--muted)">Entrepreneur • Digital Marketer • Director</div>
+          <div style="font-size:12px;color:var(--muted-dark)">Entrepreneur • Digital Marketer • Director</div>
         </div>
       </div>
 
@@ -182,15 +187,15 @@
     </div>
   </div>
 
-  <!-- Mobile nav -->
-  <div class="mobile-nav container" id="mobileNav" aria-hidden="true">
+  <!-- Mobile nav (overlay) -->
+  <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
     <a href="#hero">Home</a>
     <a href="#resume">Resume</a>
     <a href="#projects">Projects</a>
     <a href="#services">Services</a>
     <a href="#media">Media</a>
     <a href="#contact">Contact</a>
-  </div>
+  </nav>
 
   <!-- HERO -->
   <header class="hero" id="hero">
@@ -198,20 +203,16 @@
       <div class="hero-left">
         <div class="eyebrow">Profile</div>
         <h2 class="title">Siva Shanmugam</h2>
-        <p class="lead">
-          Founder & CEO of <strong>Siva Info Tech</strong>. Entrepreneur, Digital Marketer and Associate Film Director — I build growth strategies, creative content & product-led websites.
-        </p>
+        <p class="lead">Founder & CEO of <strong>Siva Info Tech</strong>. Entrepreneur, Digital Marketer and Associate Film Director — I build growth strategies, creative content & product-led websites.</p>
 
-        <div>
-          <span class="typed" id="typed"></span>
-        </div>
+        <div><span class="typed" id="typed"></span></div>
 
         <div class="hero-ctas">
           <a href="#projects" class="btn">View Projects</a>
           <a href="#contact" class="ghost">Contact Me</a>
         </div>
 
-        <div style="margin-top:20px;color:var(--muted);font-size:13px">📞 <strong>9363238446</strong> · ✉️ <a href="mailto:siteventsproduction@gmail.com" style="color:inherit;text-decoration:underline">siteventsproduction@gmail.com</a></div>
+        <div style="margin-top:20px;color:var(--muted-dark);font-size:13px">📞 <strong>9363238446</strong> · ✉️ <a href="mailto:siteventsproduction@gmail.com" style="color:inherit;text-decoration:underline">siteventsproduction@gmail.com</a></div>
       </div>
 
       <aside class="profile-card" data-aos="fade-left">
@@ -357,7 +358,7 @@
     </div>
   </section>
 
-  <!-- MEDIA/INSTAGRAM -->
+  <!-- MEDIA -->
   <section id="media" class="container" data-aos="fade-up">
     <h2 style="text-align:center; color:var(--accent); margin-bottom:18px">Media & Reels</h2>
     <div class="media-grid">
@@ -367,7 +368,7 @@
     </div>
   </section>
 
-  <!-- BLOG / CASE STUDIES (static previews) -->
+  <!-- CASE STUDIES -->
   <section class="container" data-aos="fade-up">
     <h2 style="text-align:center; color:var(--accent); margin-bottom:18px">Blog & Case Studies</h2>
     <div class="grid-2">
@@ -399,7 +400,7 @@
       <div class="status" id="status"></div>
     </form>
 
-    <div style="text-align:center; margin-top:14px; color:var(--muted)">
+    <div style="text-align:center; margin-top:14px; color:var(--muted-dark)">
       Or reach on Instagram · <a href="https://www.instagram.com/sivashanmugam.offcial/" target="_blank">sivashanmugam.offcial</a>
     </div>
   </section>
@@ -420,12 +421,157 @@
 
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
   <script>
-    AOS.init({duration:700, once:true});
+    // defensive helper
+    function $id(id){ return document.getElementById(id); }
 
-    // Typed.js roles (hero)
-    new Typed('#typed', {
-      strings: ["Entrepreneur 🚀", "Digital Marketer 📈", "Associate Director 🎬", "Event Coordinator 🎤"],
-      typeSpeed: 60,
-      backSpeed: 
+    document.addEventListener('DOMContentLoaded', function(){
+      // Init AOS
+      if(window.AOS) AOS.init({duration:700, once:true});
+
+      // Typed
+      try {
+        if(window.Typed) {
+          new Typed('#typed', {
+            strings: ["Entrepreneur 🚀", "Digital Marketer 📈", "Associate Director 🎬", "Event Coordinator 🎤"],
+            typeSpeed: 60,
+            backSpeed: 35,
+            backDelay: 1700,
+            loop: true
+          });
+        }
+      } catch(e){ console.warn('Typed init failed', e); }
+
+      // THEME (dark/light) - sync + icon
+      const modeToggle = $id('modeToggle');
+      function applyMode(isLight){
+        try {
+          if(isLight){
+            document.documentElement.classList.add('light');
+            localStorage.setItem('sv_mode','light');
+            if(modeToggle) modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+            if(modeToggle) modeToggle.title = 'Switch to dark mode';
+          } else {
+            document.documentElement.classList.remove('light');
+            localStorage.setItem('sv_mode','dark');
+            if(modeToggle) modeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            if(modeToggle) modeToggle.title = 'Switch to light mode';
+          }
+        } catch(e){}
+      }
+      // initialize based on earlier inline script or saved
+      applyMode(document.documentElement.classList.contains('light'));
+
+      if(modeToggle){
+        modeToggle.addEventListener('click', function(){
+          applyMode(!document.documentElement.classList.contains('light'));
+        });
+      }
+
+      // MOBILE NAV behavior (overlay)
+      const hamburger = $id('hamburger');
+      const mobileNav = $id('mobileNav');
+      function openMobileNav(){
+        if(!mobileNav) return;
+        mobileNav.classList.add('show');
+        if(hamburger) hamburger.classList.add('active');
+        document.documentElement.style.overflow = 'hidden';
+        mobileNav.setAttribute('aria-hidden','false');
+        if(hamburger) hamburger.setAttribute('aria-expanded','true');
+      }
+      function closeMobileNav(){
+        if(!mobileNav) return;
+        mobileNav.classList.remove('show');
+        if(hamburger) hamburger.classList.remove('active');
+        document.documentElement.style.overflow = '';
+        mobileNav.setAttribute('aria-hidden','true');
+        if(hamburger) hamburger.setAttribute('aria-expanded','false');
+      }
+      if(hamburger){
+        hamburger.addEventListener('click', function(){
+          if(mobileNav && mobileNav.classList.contains('show')) closeMobileNav(); else openMobileNav();
+        });
+      }
+      // close on link click inside mobile nav
+      if(mobileNav){
+        mobileNav.querySelectorAll('a').forEach(a=>{
+          a.addEventListener('click', function(){ closeMobileNav(); });
+        });
+      }
+      // close on escape
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape' && mobileNav && mobileNav.classList.contains('show')) closeMobileNav();
+      });
+      // close mobile nav on resize to desktop
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 768 && mobileNav && mobileNav.classList.contains('show')) closeMobileNav();
+      });
+
+      // PROJECTS slider controls
+      const track = $id('track');
+      const btnPrev = $id('prev');
+      const btnNext = $id('next');
+      let pos = 0;
+      function projectWidth(){
+        if(!track) return 320;
+        const el = track.querySelector('.project');
+        if(!el) return 320;
+        const style = getComputedStyle(track);
+        const gap = 16;
+        return el.offsetWidth + gap;
+      }
+      if(btnNext){
+        btnNext.addEventListener('click', function(){
+          pos = Math.min(pos + projectWidth(), track.scrollWidth - track.clientWidth);
+          track.scrollTo({left: pos, behavior: 'smooth'});
+        });
+      }
+      if(btnPrev){
+        btnPrev.addEventListener('click', function(){
+          pos = Math.max(pos - projectWidth(), 0);
+          track.scrollTo({left: pos, behavior: 'smooth'});
+        });
+      }
+      if(track){
+        track.setAttribute('tabindex','0');
+        track.addEventListener('keydown', function(e){
+          if(e.key === 'ArrowRight') btnNext && btnNext.click();
+          if(e.key === 'ArrowLeft') btnPrev && btnPrev.click();
+        });
+      }
+
+      // Lazy attribute for images
+      document.querySelectorAll('img').forEach(img => {
+        if(!img.hasAttribute('loading')) img.loading = 'lazy';
+      });
+
+      // Contact preview
+      const statusEl = $id('status');
+      const sendBtn = $id('sendBtn');
+      if(sendBtn){
+        sendBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          const name = $id('cname') && $id('cname').value.trim();
+          const email = $id('cemail') && $id('cemail').value.trim();
+          const message = $id('cmessage') && $id('cmessage').value.trim();
+          if(!name || !email || !message){
+            if(statusEl) statusEl.textContent = 'Please fill all fields.';
+            return;
+          }
+          if(statusEl) statusEl.textContent = 'Sending message…';
+          setTimeout(function(){
+            if(statusEl) statusEl.textContent = '✅ Message received (preview mode). For live delivery connect serverless API.';
+            if($id('contactForm')) $id('contactForm').reset();
+          }, 900);
+        });
+      }
+
+      // Debug: catch global errors and print clear console message (helps GitHub Pages debugging)
+      window.addEventListener('error', function(e){
+        console.error('Site error:', e.message, 'at', e.filename+':'+e.lineno);
+      }, true);
+
+    }); // DOMContentLoaded
+  </script>
+</body>
+</html>
